@@ -1,0 +1,58 @@
+# ============================================================
+# requirements.txt — Secure Document Chatbot
+# Windows 11 corrected — psycopg2-binary, watchfiles, slowapi
+# ============================================================
+
+# ── Web Framework ───────────────────────────────────────────
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.12
+
+# ── Database ────────────────────────────────────────────────
+psycopg2-binary==2.9.9          # FIXED: plain psycopg2 fails on Windows
+sqlalchemy==2.0.35
+alembic==1.13.3
+pgvector==0.3.5
+
+# ── Auth / Security ─────────────────────────────────────────
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.2.0
+
+# ── PDF Processing ──────────────────────────────────────────
+pdfplumber==0.11.4
+pdf2image==1.17.0               # requires Poppler on Windows
+pytesseract==0.3.13             # requires Tesseract on Windows
+Pillow==11.0.0
+
+# ── ML / Embeddings ─────────────────────────────────────────
+sentence-transformers==3.3.1
+torch==2.4.1                    # CPU version — no CUDA needed
+numpy==1.26.4
+
+# ── LLM ─────────────────────────────────────────────────────
+openai==1.54.3
+langchain==0.3.7
+langchain-openai==0.2.6
+
+# ── Utilities ───────────────────────────────────────────────
+python-dotenv==1.0.1
+aiofiles==24.1.0
+httpx==0.27.2
+pydantic==2.9.2
+pydantic-settings==2.6.0
+email-validator==2.2.0
+
+# ── Rate Limiting ───────────────────────────────────────────
+slowapi==0.1.9                  # ADDED: rate limiting for /chat/ask
+
+# ── Windows Reload Support ──────────────────────────────────
+watchfiles==1.0.0               # ADDED: uvicorn --reload on Windows
+
+# ── Logging / Monitoring ────────────────────────────────────
+loguru==0.7.2
+
+# ── Testing ─────────────────────────────────────────────────
+pytest==8.3.3
+pytest-asyncio==0.24.0
+httpx==0.27.2
